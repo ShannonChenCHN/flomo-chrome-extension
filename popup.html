@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>flomo 笔记清空</h1>
+
+    <!-- 页面状态 -->
+    <div id="page-status" class="status">
+      <span id="status-text">检查中...</span>
+    </div>
+
+    <!-- 扫描区域 -->
+    <div id="scan-section" class="section hidden">
+      <button id="scan-btn" class="btn btn-secondary">扫描笔记</button>
+      <div id="scan-result" class="result-text"></div>
+    </div>
+
+    <!-- 删除区域 -->
+    <div id="delete-section" class="section hidden">
+      <div class="warning">
+        <strong>⚠️ 危险操作</strong><br>
+        此操作将删除所有笔记（移入回收站）。<br>
+        确认你已完成备份。<br>
+        如需永久删除，请手动清空回收站。
+      </div>
+      <input
+        type="text"
+        id="confirm-input"
+        placeholder='输入 DELETE ALL FLOMO NOTES 确认'
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <button id="delete-btn" class="btn btn-danger" disabled>开始删除</button>
+    </div>
+
+    <!-- 进度区域 -->
+    <div id="progress-section" class="section hidden">
+      <div id="progress-text" class="progress-text">准备中...</div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <div class="actions">
+        <button id="pause-btn" class="btn btn-secondary">暂停</button>
+        <button id="stop-btn" class="btn btn-warning">停止</button>
+      </div>
+    </div>
+
+    <!-- 日志区域 -->
+    <div class="section">
+      <h3>操作日志</h3>
+      <div id="log" class="log"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
